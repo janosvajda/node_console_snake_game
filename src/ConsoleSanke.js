@@ -22,12 +22,11 @@ function Snake(game_console)
     var self=this;
     var snake_body_array;
     var cw = 10;
-    var snake_direction = MOVE_DOWN;
+    var snake_direction;
     var food;
     var score = 0;
     var default_snake_length=3;
-    var game_timer;
-    
+
     var get_max_column=function(){
         return process.stdout.columns;
     }
@@ -143,7 +142,7 @@ function Snake(game_console)
 
     var gameTimer = function(){
         if(typeof game_timer != 'undefined') clearInterval(game_timer);
-        game_timer = setInterval(drawSnake, 70);
+        game_timer = setInterval(drawSnake, 80);
     }
 
     this.setSnakeDirection = function(direction){
@@ -155,6 +154,7 @@ function Snake(game_console)
      */
     this.init = function()
     {
+        snake_direction = MOVE_RIGHT;
         create_snake();
         create_food();
         gameTimer();
