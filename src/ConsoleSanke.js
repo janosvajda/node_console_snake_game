@@ -21,7 +21,6 @@ function Snake(game_console)
 {
     var self=this;
     var snake_body_array;
-    var cw = 10;
     var snake_direction;
     var food;
     var score = 0;
@@ -67,12 +66,12 @@ function Snake(game_console)
         }
         
         if(move_col == -1 || 
-           move_col == get_max_column()/cw || 
+           move_col == get_max_column() || 
            move_row == -1 || 
-           move_row == get_max_rows()/cw || 
+           move_row == get_max_rows() || 
            is_crash(move_col, move_row))
         {
-            game_console.clear_screen();
+            //game_console.clear_screen();
             self.init();
             return 0;
         }
@@ -216,7 +215,7 @@ function GameConsole(){
  */
 var game_console = new GameConsole();
 var game = new Snake(game_console);
-game_console.clear_screen();
+//game_console.clear_screen();
 game_console.manage_console_keyboard_events();
 game.init();
 game_console.resume();
