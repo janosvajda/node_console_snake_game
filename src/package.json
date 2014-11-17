@@ -1,5 +1,5 @@
-package.json{
-  "name": "Console Snake",
+{
+  "name": "Console_Snake",
   "version": "0.0.1",
   "private": false,
   "homepage": "https://github.com/janosvajda/node_console_snake_game",
