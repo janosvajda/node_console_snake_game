@@ -1,0 +1,23 @@
+package.json{
+  "name": "Console Snake",
+  "version": "0.0.1",
+  "private": false,
+  "homepage": "https://github.com/janosvajda/node_console_snake_game",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/janosvajda/node_console_snake_game.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+    }
+  ],
+  "keywords": [
+    "snake",
+    "console",
+    "game",
+  ],
+  "dependencies": {
+    "keypress": "0.2.1"
+  }
+}

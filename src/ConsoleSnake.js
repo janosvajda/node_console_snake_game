@@ -170,9 +170,7 @@ function GameConsole(){
     
     this.clear_screen = function(){
         var lines = console_process.stdout.getWindowSize()[1];
-        for(var i = 0; i < lines; i++) {
-            console.log('\r\n');
-        }
+            process.stdout.write('\u001B[2J\u001B[0;0f');
     }
     
 
@@ -215,7 +213,7 @@ function GameConsole(){
  */
 var game_console = new GameConsole();
 var game = new Snake(game_console);
-//game_console.clear_screen();
+game_console.clear_screen();
 game_console.manage_console_keyboard_events();
 game.init();
 game_console.resume();
