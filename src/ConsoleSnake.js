@@ -3,14 +3,6 @@ var keypress = require('keypress')
   , readline = require('readline')
   ;
 
-/**
- * Some constant
- * @type Number
- */
-var MOVE_UP = 1;
-var MOVE_DOWN = 2;
-var MOVE_RIGHT = 3;
-var MOVE_LEFT = 4;
 
 /**
  * Game class
@@ -25,7 +17,13 @@ function Snake(game_console)
     var food;
     var score = 0;
     var default_snake_length=3;
-
+    
+    var MOVE_UP = 1;
+    var MOVE_DOWN = 2;
+    var MOVE_RIGHT = 3;
+    var MOVE_LEFT = 4;
+    
+    
     var get_max_column=function(){
         return process.stdout.columns;
     }
@@ -71,7 +69,7 @@ function Snake(game_console)
            move_row == get_max_rows() || 
            is_crash(move_col, move_row))
         {
-            //game_console.clear_screen();
+            game_console.clear_screen();
             self.init();
             return 0;
         }
@@ -144,8 +142,17 @@ function Snake(game_console)
         game_timer = setInterval(drawSnake, 80);
     }
 
-    this.setSnakeDirection = function(direction){
-        snake_direction=direction;
+    this.setSnakeDirectionUp = function(direction){
+        snake_direction=MOVE_UP;
+    }
+    this.setSnakeDirectionDown = function(direction){
+        snake_direction=MOVE_DOWN;
+    }
+    this.setSnakeDirectionRight = function(direction){
+        snake_direction=MOVE_RIGHT;
+    }
+    this.setSnakeDirectionLeft = function(direction){
+        snake_direction=MOVE_LEFT;
     }
 
     /**
@@ -178,16 +185,16 @@ function GameConsole(){
         keypress(console_process.stdin);
         console_process.stdin.on('keypress', function (ch, key) {
             if (key && key.name == 'up') {
-                game.setSnakeDirection(MOVE_UP);
+                game.setSnakeDirectionUp();
             }
             if (key && key.name == 'down') {
-                game.setSnakeDirection(MOVE_DOWN);
+                game.setSnakeDirectionDown();
             }
             if (key && key.name == 'right') {
-                game.setSnakeDirection(MOVE_RIGHT);
+                game.setSnakeDirectionRight();
             }
             if (key && key.name == 'left') {
-                game.setSnakeDirection(MOVE_LEFT);
+                game.setSnakeDirectionLeft();
             }
             if (key && key.ctrl && key.name == 'c') {
               console_process.stdin.pause();
